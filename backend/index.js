@@ -1,16 +1,13 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const pessoaRoute = require("./api/routes/pessoa");
-const denunciaRoute = require("./api/routes/denuncia");
-const respostaRoute = require("./api/routes/resposta");
+const router = require("./api/routes");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("", pessoaRoute);
-app.use("", denunciaRoute);
-app.use("", respostaRoute);
+app.use(router);
+
 
 const port = process.env.PORT || 3000;
 
