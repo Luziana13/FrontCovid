@@ -6,40 +6,31 @@ CREATE EXTENSION IF NOT EXISTS "plpgsql"
 create table pessoa (
 	idpessoa serial not null primary key,
 	nome varchar(50),
-	email varchar(50) not null,
-	idade int not null,
-	sexo varchar(20) not null ,
-	cor varchar(20) not null,
-	escolaridade varchar(45) not null,
-	categoriaprof varchar(50) not null,
-	renda float not null,
-	sintomas int not null,
-	diagnostico int not null,
-	contatocom int not null
+	email varchar(50) ,
+	idade int ,
+	sexo varchar(20) ,
+	cor varchar(20),
+	escolaridade varchar(45) ,
+	categoriaprof varchar(50) ,
+	renda float ,
+	sintomas int ,
+	diagnostico int,
+	contatocom int
 );
 
 create table denuncia (
-	idpessoa int not null,
+	idpessoa int ,
 	iddenuncia serial not null primary key,
-	periodo varchar(15) not null,
-	data_ varchar(20) not null,
-	colegaapesentou int not null,
-	vunerabilidade varchar(75) not null,
-	descricaovulnerabilidade varchar(500) not null,
-	latitude float not null,
-	longitude float not null,
+	periodo varchar(15) ,
+	data_ varchar(20) ,
+	colegaapesentou int ,
+	vunerabilidade varchar(75) ,
+	descricaovulnerabilidade varchar(500) ,
+	latitude float ,
+	longitude float ,
 	foreign key(idpessoa) references pessoa(idpessoa)
 );
 
-create table colega (
-	idcolega serial not null primary key,
-	iddenuncia serial not null,
-	CategoriaProfColega varchar(50),
-	idadeColega varchar(3),
-	sexoColega varchar(13),
-	corColega varchar(15),
-	foreign key (iddenuncia) references denuncia(iddenuncia)
-);
 
 create table resposta(
 	idresposta serial not null primary key,
